@@ -1,0 +1,23 @@
+---
+- name: FILE MODULE EXAMPLE 
+  hosts: redhat
+  tasks:
+  - name: creating file
+    file:
+     path: file3
+     state: touch
+  - name: creating directory
+    file:
+     path: dir3
+     state: directory
+- hosts: ubuntu
+  tasks:
+  - name: creating file
+    file:
+     path: file2
+     state: touch
+  - name: creating directory
+    file:
+     path: dir2
+     state: directory
+...

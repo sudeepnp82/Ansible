@@ -1,0 +1,19 @@
+---
+ - hosts: ubuntu
+   become: yes
+   vars:
+     pkg: nano
+   tasks:
+    - name: install "{{pkg}}"
+      apt:
+       name: "{{pkg}}"
+       state: present
+       update_cache: yes
+    - name: install "{{pkg}}"
+      apt:
+       name: "{{pkg}}"
+       state: present
+       update_cache: yes
+      vars:
+        pkg: apache2
+...

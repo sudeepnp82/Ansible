@@ -1,0 +1,14 @@
+---
+ - hosts: ubuntu
+   become: yes
+   vars_prompt:
+           name: pkg
+           prompt: enter the package you want to install
+           private: no
+   tasks:
+    - name: install "{{pkg}}"
+      apt:
+       name: "{{pkg}}"
+       state: present
+       update_cache: yes
+...

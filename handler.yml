@@ -1,0 +1,19 @@
+---
+ - hosts: redhat
+   tasks:
+   - name: install httpd
+     yum:
+       name: httpd
+       state: present
+     notify: start httpd  
+   - name: deployment
+     copy:
+        src: index.html
+        dest: /var/www/html
+     notify: start httpd  
+   handlers: 
+   - name: start httpd
+     service:
+       name: httpd
+       state: started
+...
